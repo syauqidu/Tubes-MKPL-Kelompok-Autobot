@@ -60,5 +60,62 @@ function deleteData(index) {
   }
 }
 
+function deleteData1(index) {
+  if (confirm("Yakin ingin menghapus data ini?")) {
+    rentalData.splice(index, 1);
+    renderTable();
+  }
+}
+
+function deleteData2(index) {
+  if (confirm("Yakin ingin menghapus data ini?")) {
+    rentalData.splice(index, 1);
+    renderTable();
+  }
+}
+
+function deleteData3(index) {
+  if (confirm("Yakin ingin menghapus data ini?")) {
+    rentalData.splice(index, 1);
+    renderTable();
+  }
+}
+
+function deleteData4(index) {
+  if (confirm("Yakin ingin menghapus data ini?")) {
+    rentalData.splice(index, 1);
+    renderTable();
+  }
+}
+
+function deleteData5(index) {
+  if (confirm("Yakin ingin menghapus data ini?")) {
+    rentalData.splice(index, 1);
+    renderTable();
+  }
+}
+
+function deleteData6(index) {
+  if (confirm("Yakin ingin menghapus data ini?")) {
+    rentalData.splice(index, 1);
+    renderTable();
+  }
+}
+
+function deleteData3(index) {
+  if (confirm("Yakin ingin menghapus data ini?")) {
+    rentalData.splice(index, 1);
+    renderTable();
+  }
+}
+
+function deleteData7(index) {
+  if (confirm("Yakin ingin menghapus data ini?")) {
+    rentalData.splice(index, 1);
+    renderTable();
+  }
+}
+
+
 // Render data awal
 renderTable();
