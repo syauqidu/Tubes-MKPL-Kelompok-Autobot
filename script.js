@@ -28,7 +28,8 @@ function renderTable() {
   const tbody = document.getElementById("dataList");
   tbody.innerHTML = "";
 
-  const idSecurityToken = Math.random();
+  const kosong = document.getElementById("qwertyuiop");
+  kosong.innerHTML = "tidak ada id ini"
 
   rentalData.forEach((data, index) => {
     const tr = document.createElement("tr");
@@ -38,7 +39,7 @@ function renderTable() {
         <td>${data.psType}</td>
         <td>${data.lamaSewa} jam</td>
         <td>
-          <button data-tx-id="${idSecurityToken}" class="btn btn-sm btn-warning me-1" onclick="editData(${index})">Edit</button>
+          <button class="btn btn-sm btn-warning me-1" onclick="editData(${index})">Edit</button>
           <button class="btn btn-sm btn-danger" onclick="deleteData(${index})">Hapus</button>
         </td>
       `;
