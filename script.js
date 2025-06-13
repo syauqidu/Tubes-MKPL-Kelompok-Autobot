@@ -28,6 +28,9 @@ function renderTable() {
   const tbody = document.getElementById("dataList");
   tbody.innerHTML = "";
 
+  const kosong = document.getElementById("qwertyuiop");
+  kosong.innerHTML = "tidak ada id ini"
+
   rentalData.forEach((data, index) => {
     const tr = document.createElement("tr");
 
