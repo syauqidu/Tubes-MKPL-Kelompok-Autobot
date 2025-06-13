@@ -11,21 +11,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: ⬇️ Checkout Kode (Continuous Integration)
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Set up Node.js
+      - name: Set up Node.js 🔧
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      - name: Install dependencies 📚
-        run: |
-          npm install
-          npm install --save-dev jest
+      # Gaperlu Install npm karena jenis project web statis, kalo perlu depedensi node.js unntuk test, bisa uncomment
+      # - name: Install dependencies 📚
+      #   run: |
+      #     npm install
+      #     npm install --save-dev jest
 
-      - name: Run unit tests (Testing) ✒️
-        run: npm test
+      # Sesuaiin node nya dengan nama file dan lokasi file unit test
+      - name: Jalankan Tes Unit (Continuous Testing) 🧪
+        run: |
+          echo "Menjalankan tes unit Rental PS..."
+          node tests/rental.test.js
 
       - name: SonarCloud Scan (Inspection) 🔍
         uses: SonarSource/sonarcloud-github-action@v2
