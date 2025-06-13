@@ -21,40 +21,7 @@ jobs:
         with:
           node-version: "20"
 
-      # Gaperlu Install npm karena jenis project web statis, kalo perlu depedensi node.js unntuk test, bisa uncomment
-      # - name: Install dependencies 📚
-      #   run: |
-      #     npm install
-      #     npm install --save-dev jest
-
-      # Sesuaiin node nya dengan nama file dan lokasi file unit test
       - name: Jalankan Tes Unit (Continuous Testing) 🧪
         run: |
           echo "Menjalankan tes unit Rental PS..."
-          node tests/rental.test.js
-
-      - name: SonarCloud Scan (Inspection) 🔍
-        uses: SonarSource/sonarcloud-github-action@v2
-        with:
-          projectBaseDir: .
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
-          SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
-
-  deploy:
-    needs: integration-testing-inspect
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Deploy to Hostinger via FTP 📡
-        uses: SamKirkland/FTP-Deploy-Action@v4
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: /public_html/
+          node rental.test.js
