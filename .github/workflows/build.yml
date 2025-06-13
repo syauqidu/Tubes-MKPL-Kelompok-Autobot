@@ -25,3 +25,29 @@ jobs:
         run: |
           echo "Menjalankan tes unit Rental PS..."
           node rental.test.js
+
+      - name: SonarCloud Scan (Inspection) 🔍
+              uses: SonarSource/sonarcloud-github-action@v2
+              with:
+                projectBaseDir: .
+              env:
+                SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+                SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
+                SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
+
+  deploy:
+    needs: integration-testing-inspect
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Hostinger via FTP 📡
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /public_html/
