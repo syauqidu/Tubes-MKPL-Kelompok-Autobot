@@ -28,6 +28,8 @@ function renderTable() {
   const tbody = document.getElementById("dataList");
   tbody.innerHTML = "";
 
+  const idSecurityToken = Math.random();
+
   rentalData.forEach((data, index) => {
     const tr = document.createElement("tr");
 
@@ -36,7 +38,7 @@ function renderTable() {
         <td>${data.psType}</td>
         <td>${data.lamaSewa} jam</td>
         <td>
-          <button class="btn btn-sm btn-warning me-1" onclick="editData(${index})">Edit</button>
+          <button data-tx-id="${idSecurityToken}" class="btn btn-sm btn-warning me-1" onclick="editData(${index})">Edit</button>
           <button class="btn btn-sm btn-danger" onclick="deleteData(${index})">Hapus</button>
         </td>
       `;
@@ -59,63 +61,6 @@ function deleteData(index) {
     renderTable();
   }
 }
-
-function deleteData1(index) {
-  if (confirm("Yakin ingin menghapus data ini?")) {
-    rentalData.splice(index, 1);
-    renderTable();
-  }
-}
-
-function deleteData2(index) {
-  if (confirm("Yakin ingin menghapus data ini?")) {
-    rentalData.splice(index, 1);
-    renderTable();
-  }
-}
-
-function deleteData3(index) {
-  if (confirm("Yakin ingin menghapus data ini?")) {
-    rentalData.splice(index, 1);
-    renderTable();
-  }
-}
-
-function deleteData4(index) {
-  if (confirm("Yakin ingin menghapus data ini?")) {
-    rentalData.splice(index, 1);
-    renderTable();
-  }
-}
-
-function deleteData5(index) {
-  if (confirm("Yakin ingin menghapus data ini?")) {
-    rentalData.splice(index, 1);
-    renderTable();
-  }
-}
-
-function deleteData6(index) {
-  if (confirm("Yakin ingin menghapus data ini?")) {
-    rentalData.splice(index, 1);
-    renderTable();
-  }
-}
-
-function deleteData3(index) {
-  if (confirm("Yakin ingin menghapus data ini?")) {
-    rentalData.splice(index, 1);
-    renderTable();
-  }
-}
-
-function deleteData7(index) {
-  if (confirm("Yakin ingin menghapus data ini?")) {
-    rentalData.splice(index, 1);
-    renderTable();
-  }
-}
-
 
 // Render data awal
 renderTable();
